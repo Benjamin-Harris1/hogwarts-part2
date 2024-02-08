@@ -18,9 +18,11 @@ public class InitApp {
     }
 
     public void displayData(){
-        userInterFace.getAllStudents();
-        userInterFace.getAllTeachers();
+        userInterFace.printTable();
+        //userInterFace.getAllStudents();
+        //userInterFace.getAllTeachers();
     }
+
 
     public void initialize(){
 
@@ -31,7 +33,7 @@ public class InitApp {
         House hufflepuff = new House("Hufflepuff", "Helga Hufflepuff", new String[]{"yellow", "black"});
 
         // Opretter students
-        studentController.create(new HogwartsStudent("Harry Potter", 1991, 1997, false, gryffindor, true, new String[]{"Quidditch"}));
+        studentController.create(new HogwartsStudent("Harry James Potter", 1991, 1997, false, gryffindor, true, new String[]{"Quidditch"}));
         studentController.create(new HogwartsStudent("Ron Weasley", 1991, 1997, false, gryffindor, false, new String[]{"Quidditch"}));
         studentController.create(new HogwartsStudent("Hermione Granger", 1991, 1997, false, gryffindor, false, new String[]{}));
         studentController.create(new HogwartsStudent("Draco Malfoy", 1991, 1997, false, slytherin, false, new String[]{"Quidditch"}));
