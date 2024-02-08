@@ -6,7 +6,7 @@ public class House{
     private String[] colors;
 
     public String toString(){
-        return "edu.hogwarts.data.House{" + "name=" + name +  ", founder=" + founder + ", colors=" + String.join(",", colors) + "}";
+        return "house=" + name +  ", founder=" + founder + ", colors=" + String.join(",", colors);
     }
 
     public House(String name, String founder, String[] colors){

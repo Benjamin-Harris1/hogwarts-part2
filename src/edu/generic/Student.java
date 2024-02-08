@@ -6,6 +6,11 @@ public class Student extends Person {
     private int graduationYear;
     private boolean graduated;
 
+
+    public String toString(){
+        return "Student{" + "name=" + super.toString() + ", enrollmentYear=" + enrollmentYear + ", graduationYear=" + graduationYear + ", graduated=" + graduated + ", ";
+    }
+
     public Student(String firstName, String middleName, String lastName, int enrollmentYear, int graduationYear, boolean graduated){
         super(firstName, middleName, lastName);
         this.enrollmentYear = enrollmentYear;
@@ -24,9 +29,6 @@ public class Student extends Person {
 
     }
 
-    public String toString(){
-        return "edu.generic.Student{" + "name: " + super.toString() + ", enrollmentYear=" + enrollmentYear + ", graduationYear=" + graduationYear + ", graduated=" + graduated + "}";
-    }
 
     public int getEnrollmentYear(){
         return enrollmentYear;

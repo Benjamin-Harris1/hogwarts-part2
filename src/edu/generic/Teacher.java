@@ -10,7 +10,7 @@ public class Teacher extends Person {
     private LocalDate employmentEnd;
 
     public String toString(){
-        return super.toString() + ", employment type: " + employmentType;
+        return "Teacher{" + "name=" + super.toString() + ", employment type=" + employmentType;
     }
 
     public Teacher(String firstName, String middleName, String lastName, EmpType employmentType, LocalDate employmentStart, LocalDate employmentEnd){

@@ -9,7 +9,7 @@ public class HogwartsTeacher extends Teacher implements HogwartsPerson {
     private boolean headOfHouse;
 
     public String toString(){
-        return super.toString() + ", " + house + " is head of house=" + headOfHouse;
+        return super.toString() + ", " + house + ", is head of house=" + headOfHouse + "}";
     }
 
     public HogwartsTeacher(String firstName, String middleName, String lastName, EmpType employmentType, LocalDate employmentStart, LocalDate employmentEnd, House house, boolean headOfHouse) {
