@@ -17,10 +17,6 @@ public class InitApp {
         this.userInterFace = userInterFace;
     }
 
-    public void displayData(){
-        userInterFace.printTable();
-    }
-
     public void initializeStudents(){
 
         //  Opretter houses
