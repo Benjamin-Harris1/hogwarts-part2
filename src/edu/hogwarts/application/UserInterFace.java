@@ -45,9 +45,10 @@ public class UserInterFace {
 
     private void printList(List<HogwartsStudent> sortedStudents, List<HogwartsTeacher> sortedTeachers) {
         String headerFormat = "| %-12s | %-12s | %-12s | %-12s | %-12s |\n";
-        System.out.format(headerFormat, "First Name", "Middle Name", "Last Name", "House", "Role");
         System.out.println(new String(new char[50]).replace("\0", "-"));
-
+        
+        System.out.println("Students:");
+        System.out.format(headerFormat, "First Name", "Middle Name", "Last Name", "House", "Role");
         for (HogwartsStudent student : sortedStudents) {
             String rowFormat = "| %-12s | %-12s | %-12s | %-12s | %-12s |\n";
             System.out.format(rowFormat,
@@ -58,6 +59,9 @@ public class UserInterFace {
                     "Student");
         }
 
+        System.out.println();
+        System.out.println("Teachers:");
+        System.out.format(headerFormat, "First Name", "Middle Name", "Last Name", "House", "Role");
         for (HogwartsTeacher teacher : sortedTeachers) {
             String rowFormat = "| %-12s | %-12s | %-12s | %-12s | %-12s |\n";
             // Ternary bruges her, da nogle lærere måske ikke er knyttet til et hus
