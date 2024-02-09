@@ -54,7 +54,7 @@ public class InitApp {
 
         // Opretter teachers
         teacherController.create(new HogwartsTeacher("Horace E. Slughorn", EmpType.PROFESSOR, LocalDate.parse("1990-01-01"), null, slytherin, false));
-        teacherController.create(new HogwartsTeacher("Albus Dumbledore", EmpType.HEADMASTER, LocalDate.parse("1990-01-01"), null, null, false));
+        teacherController.create(new HogwartsTeacher("Albus Dumbledore", EmpType.HEADMASTER, LocalDate.parse("1990-01-01"), null, gryffindor, false));
         teacherController.create(new HogwartsTeacher("Minerva McGonagall", EmpType.HEAD_OF_GRYFFINDOR, LocalDate.parse("1990-01-01"), null, gryffindor, true));
         teacherController.create(new HogwartsTeacher("Severus Snape", EmpType.HEAD_OF_SLYTHERIN, LocalDate.parse("1990-01-01"), null, slytherin, true));
         teacherController.create(new HogwartsTeacher("Filius Flitwick", EmpType.HEAD_OF_RAVENCLAW, LocalDate.parse("1990-01-01"), null, ravenclaw, true));

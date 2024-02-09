@@ -13,7 +13,8 @@ public class StudentController implements Controller<HogwartsStudent> {
 
     @Override
     public void create(HogwartsStudent student) {
-        students.put(nextId, student);
+        student.setId(nextId);
+        students.put(student.getId(), student);
         nextId++; // Inkrementér ID for hver create.
     }
 

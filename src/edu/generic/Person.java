@@ -1,12 +1,21 @@
 package edu.generic;
 
 public class Person {
+    private int id;
     private String firstName;
     private String middleName;
     private String lastName;
 
     public Person(){
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Person(String firstName, String middleName, String lastName){
