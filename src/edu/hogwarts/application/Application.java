@@ -20,10 +20,8 @@ public class Application {
         initApp = new InitApp(studentController, teacherController, userInterface);
         initApp.initializeStudents();
         initApp.initializeTeachers();
-        initApp.displayData();
-        //initApp.getAllStudentsByName();
-        //initApp.getAllTeachersByName();
-
+        //initApp.displayData();
+        userInterface.start();
     }
     public static void main(String[] args){
         Application app = new Application();

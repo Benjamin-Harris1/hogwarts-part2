@@ -5,7 +5,6 @@ import edu.hogwarts.controller.TeacherController;
 import edu.hogwarts.data.*;
 
 import java.time.LocalDate;
-import java.util.Collection;
 
 public class InitApp {
     private StudentController studentController;
@@ -60,8 +59,12 @@ public class InitApp {
 
 
         // Opretter teachers
-        teacherController.create(new HogwartsTeacher("Horace E. Slughorn", EmpType.PROFESSOR, LocalDate.parse("1990-01-01"), null, slytherin, true));
-        teacherController.create(new HogwartsTeacher("Severus Snape", EmpType.PROFESSOR, LocalDate.parse("1990-01-01"), null, slytherin, true));
+        teacherController.create(new HogwartsTeacher("Horace E. Slughorn", EmpType.PROFESSOR, LocalDate.parse("1990-01-01"), null, slytherin, false));
+        teacherController.create(new HogwartsTeacher("Albus Dumbledore", EmpType.HEADMASTER, LocalDate.parse("1990-01-01"), null, null, false));
+        teacherController.create(new HogwartsTeacher("Minerva McGonagall", EmpType.HEAD_OF_GRYFFINDOR, LocalDate.parse("1990-01-01"), null, gryffindor, true));
+        teacherController.create(new HogwartsTeacher("Severus Snape", EmpType.HEAD_OF_SLYTHERIN, LocalDate.parse("1990-01-01"), null, slytherin, true));
+        teacherController.create(new HogwartsTeacher("Filius Flitwick", EmpType.HEAD_OF_RAVENCLAW, LocalDate.parse("1990-01-01"), null, ravenclaw, true));
+        teacherController.create(new HogwartsTeacher("Pomona Sprout", EmpType.HEAD_OF_HUFFLEPUFF, LocalDate.parse("1990-01-01"), null, hufflepuff, true));
     }
 
     // public void initializeCourse(){
