@@ -38,8 +38,14 @@ public class StudentController implements Controller<HogwartsStudent> {
 
     @Override
     public void update(int id, HogwartsStudent student) {
+        if (students.containsKey(id))  {
+            student.setId(id);
+            students.put(id, student);
+        } else {
+            System.out.println("Student with ID " + id + " doesn't exist");
+        }
+    } 
 
-    }
     @Override
     public void delete(int id) {
         students.remove(id);

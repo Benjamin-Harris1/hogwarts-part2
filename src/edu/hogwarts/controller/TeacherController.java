@@ -37,7 +37,12 @@ public class TeacherController implements Controller<HogwartsTeacher> {
 
     @Override
     public void update(int id, HogwartsTeacher teacher) {
-
+        if (teachers.containsKey(id)) {
+            teacher.setId(id);
+            teachers.put(id, teacher);   
+        } else {
+            System.out.println("Teacher with ID: " + id + " doesn't exist");
+        }
     }
 
     @Override
