@@ -9,7 +9,7 @@ import java.util.List;
 public class Course {
     private Subject subject;
     private Teacher teacher;
-    private DynamicArray students;
+    private List<Student> students;
     private List<TeachingMaterial> teachingMaterials;
 
     public String toString(){
@@ -19,7 +19,7 @@ public class Course {
     public Course(Subject subject, Teacher teacher){
         this.subject = subject;
         this.teacher = teacher;
-        this.students = new DynamicArray();
+        this.students = new ArrayList<>();
         this.teachingMaterials = new ArrayList<>();
     }
 
@@ -55,7 +55,7 @@ public class Course {
         this.teacher = teacher;
     }
 
-    public DynamicArray getStudents(){
+    public List<Student> getStudents(){
         return students;
     }
 

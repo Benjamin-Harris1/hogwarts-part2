@@ -50,20 +50,4 @@ public class UserInterFace {
             );
         }
     }
-
-    public void getAllStudents(){
-        System.out.println("List of all students:");
-        List<HogwartsStudent> students = studentController.getAll();
-        for (HogwartsStudent student : students){
-            System.out.println(student.toString());
-        }
-    }
-
-    public void getAllTeachers(){
-        System.out.println("List of all teachers:");
-        ArrayList<HogwartsTeacher> teachers = teacherController.getAll();
-        for (HogwartsTeacher teacher : teachers) {
-            System.out.println(teacher.toString());
-        }
-    }
 }

@@ -1,16 +1,20 @@
 package edu.hogwarts.data;
 
+import edu.generic.Student;
+
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class YearGroup{
     private int schoolYear;
     private LocalDate beginningOfSchoolYear;
-    private DynamicArray students;
+    private List<Student> students;
 
     public YearGroup(int schoolYear, LocalDate beginningOfSchoolYear){
         this.schoolYear = schoolYear;
         this.beginningOfSchoolYear = beginningOfSchoolYear;
-        this.students = new DynamicArray();
+        this.students = new ArrayList<>();
     }
 
     public int getSchoolYear(){
