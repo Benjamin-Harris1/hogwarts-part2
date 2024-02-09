@@ -4,6 +4,8 @@ import edu.hogwarts.data.HogwartsStudent;
 
 
 import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class StudentController implements Controller<HogwartsStudent> {
     private Map<Integer, HogwartsStudent> students = new HashMap<>();
@@ -40,5 +42,10 @@ public class StudentController implements Controller<HogwartsStudent> {
     @Override
     public void delete(int id) {
         students.remove(id);
+    }
+
+    @Override
+    public List<HogwartsStudent> getAllFiltered(Predicate<HogwartsStudent> predicate) {
+        return students.values().stream().filter(predicate).collect(Collectors.toList());
     }
 }

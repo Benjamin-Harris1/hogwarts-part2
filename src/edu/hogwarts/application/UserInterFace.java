@@ -5,6 +5,7 @@ import edu.hogwarts.controller.TeacherController;
 import edu.hogwarts.data.HogwartsStudent;
 import edu.hogwarts.data.HogwartsTeacher;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -27,7 +28,7 @@ public class UserInterFace {
 
             switch(input) {
                 case "f":
-                    //filterMenu();
+                    filterMenu();
                     break;
                 case "s":
                     sortMenu();
@@ -39,6 +40,34 @@ public class UserInterFace {
                     System.out.println("Invalid input, please try again");
             }
 
+        }
+    }
+
+    private void printList(List<HogwartsStudent> sortedStudents, List<HogwartsTeacher> sortedTeachers) {
+        String headerFormat = "| %-12s | %-12s | %-12s | %-12s | %-12s |\n";
+        System.out.format(headerFormat, "First Name", "Middle Name", "Last Name", "House", "Role");
+        System.out.println(new String(new char[50]).replace("\0", "-"));
+
+        for (HogwartsStudent student : sortedStudents) {
+            String rowFormat = "| %-12s | %-12s | %-12s | %-12s | %-12s |\n";
+            System.out.format(rowFormat,
+                    student.getFirstName(),
+                    student.getMiddleName(),
+                    student.getLastName(),
+                    student.getHouse().getName(),
+                    "Student");
+        }
+
+        for (HogwartsTeacher teacher : sortedTeachers) {
+            String rowFormat = "| %-12s | %-12s | %-12s | %-12s | %-12s |\n";
+            // Ternary bruges her, da nogle lærere måske ikke er knyttet til et hus
+            String houseName = teacher.getHouse() != null ? teacher.getHouse().getName() : "None";
+            System.out.format(rowFormat,
+                    teacher.getFirstName(),
+                    teacher.getMiddleName(),
+                    teacher.getLastName(),
+                    houseName,
+                    "Teacher");
         }
     }
 
@@ -85,32 +114,44 @@ public class UserInterFace {
                 return;
         }
 
-            printSorted(sortedStudents, sortedTeachers);
+            printList(sortedStudents, sortedTeachers);
     }
 
-    private void printSorted(List<HogwartsStudent> sortedStudents, List<HogwartsTeacher> sortedTeachers) {
-        String headerFormat = "| %-12s | %-12s | %-12s | %-12s |\n";
-        System.out.format(headerFormat, "First Name", "Last Name", "House", "Role");
-        System.out.println(new String(new char[50]).replace("\0", "-"));
+    private void filterMenu() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Filter by 'house' or 'role'");
+        String filterField = scanner.nextLine();
 
-        for (HogwartsStudent student : sortedStudents) {
-            String rowFormat = "| %-12s | %-12s | %-12s | %-12s |\n";
-            System.out.format(rowFormat,
-                    student.getFirstName(),
-                    student.getLastName(),
-                    student.getHouse().getName(), // Antager at getHouse() returnerer et objekt, der har en getName() metode.
-                    "Student");
+        if ("role".equalsIgnoreCase(filterField)) {
+            System.out.println("Choose a role: 'Student' or 'Teacher'");
+        } else if ("house".equalsIgnoreCase(filterField)) {
+            System.out.println("Choose a house, 'Gryffindor', 'Hufflepuff', 'Ravenclaw', or 'Slytherin'");
+        } 
+        String filterValue = scanner.nextLine();
+
+        List<HogwartsStudent> sortedStudents = new ArrayList<>();
+        List<HogwartsTeacher> sortedTeachers = new ArrayList<>();
+
+        switch(filterField.toLowerCase()) {
+            case "role":
+                if ("student".equalsIgnoreCase(filterValue)) {
+                    sortedStudents = studentController.getAllFiltered(student -> true);
+                } else if ("teacher".equalsIgnoreCase(filterValue)){
+                    sortedTeachers = teacherController.getAllFiltered(teacher -> true);
+                } else {
+                    System.out.println("Invalid input, try again");
+                    return;
+                }
+                break;
+            case "house":
+                sortedStudents = studentController.getAllFiltered(student -> student.getHouse().getName().equalsIgnoreCase(filterValue));
+                sortedTeachers = teacherController.getAllFiltered(teacher -> teacher.getHouse() != null && teacher.getHouse().getName().equalsIgnoreCase(filterValue));
+                break;
+            default:
+                System.out.println("Invalid filter field");
+                return;
         }
-        for (HogwartsTeacher teacher : sortedTeachers) {
-            String rowFormat = "| %-12s | %-12s | %-12s | %-12s |\n";
-            // Ternary bruges her, da nogle lærere måske ikke er knyttet til et hus
-            String houseName = teacher.getHouse() != null ? teacher.getHouse().getName() : "None";
-            System.out.format(rowFormat,
-                    teacher.getFirstName(),
-                    teacher.getLastName(),
-                    houseName,
-                    "Teacher");
-        }
+
+        printList(sortedStudents, sortedTeachers);
     }
-
 }
