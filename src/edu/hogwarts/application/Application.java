@@ -13,11 +13,11 @@ public class Application {
         studentController = new StudentController();
         teacherController = new TeacherController();
         userInterface = new UserInterFace(studentController, teacherController);
-        initApp = new InitApp(studentController, teacherController, userInterface);
+        initApp = new InitApp(studentController, teacherController);
     }
 
     public void start(){
-        initApp = new InitApp(studentController, teacherController, userInterface);
+        initApp = new InitApp(studentController, teacherController);
         initApp.initializeStudents();
         initApp.initializeTeachers();
         //initApp.displayData();

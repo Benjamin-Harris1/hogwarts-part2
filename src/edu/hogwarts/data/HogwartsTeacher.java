@@ -35,7 +35,7 @@ public class HogwartsTeacher extends Teacher implements HogwartsPerson {
         return headOfHouse;
     }
 
-    public void setHeadofHouse(){
+    public void setHeadofHouse(boolean headOfHouse){
         this.headOfHouse = headOfHouse;
     }
 }

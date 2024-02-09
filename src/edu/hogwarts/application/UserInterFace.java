@@ -138,9 +138,6 @@ public class UserInterFace {
                     sortedStudents = studentController.getAllFiltered(student -> true);
                 } else if ("teacher".equalsIgnoreCase(filterValue)){
                     sortedTeachers = teacherController.getAllFiltered(teacher -> true);
-                } else {
-                    System.out.println("Invalid input, try again");
-                    return;
                 }
                 break;
             case "house":

@@ -9,12 +9,10 @@ import java.time.LocalDate;
 public class InitApp {
     private StudentController studentController;
     private TeacherController teacherController;
-    private UserInterFace userInterFace;
 
-    public InitApp(StudentController studentController, TeacherController teacherController, UserInterFace userInterFace){
+    public InitApp(StudentController studentController, TeacherController teacherController){
         this.studentController = studentController;
         this.teacherController = teacherController;
-        this.userInterFace = userInterFace;
     }
 
     public void initializeStudents(){
