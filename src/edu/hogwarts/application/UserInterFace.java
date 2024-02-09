@@ -25,8 +25,8 @@ public class UserInterFace {
         System.out.format(headerFormat, "First Name", "Middle Name", "Last Name", "House", "Role");
         System.out.println(new String(new char[70]).replace("\0", "-"));
 
-        List<HogwartsStudent> students = studentController.getAll();
-        List<HogwartsTeacher> teachers = teacherController.getAll();
+        List<HogwartsStudent> students = studentController.getAllSorted((a,b) -> a.getFullName().compareTo(b.getFullName()));
+        List<HogwartsTeacher> teachers = teacherController.getAllSorted((a,b) -> a.getFullName().compareTo(b.getFullName()));
 
         // Printer students
         for (HogwartsStudent student : students){

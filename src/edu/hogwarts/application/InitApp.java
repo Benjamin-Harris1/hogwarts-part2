@@ -20,24 +20,6 @@ public class InitApp {
 
     public void displayData(){
         userInterFace.printTable();
-        //userInterFace.getAllStudents();
-        //userInterFace.getAllTeachers();
-    }
-
-    public void getAllStudentsByName(){
-        System.out.println("Students sorted by name:");
-        Collection<HogwartsStudent> students = studentController.getAllSorted((a, b) -> a.getFullName().compareTo(b.getFullName()));
-        for (HogwartsStudent student : students){
-            System.out.println(student.toString());
-        }
-    }
-
-    public void getAllTeachersByName(){
-        System.out.println("Teachers sorted by name:");
-        Collection<HogwartsTeacher> teachers = teacherController.getAllSorted((a,b) -> a.getFullName().compareTo(b.getFullName()));
-        for (HogwartsTeacher teacher : teachers){
-            System.out.println(teacher.toString());
-        }
     }
 
     public void initializeStudents(){
