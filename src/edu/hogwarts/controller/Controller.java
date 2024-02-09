@@ -1,11 +1,13 @@
 package edu.hogwarts.controller;
 
-import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 public interface Controller<T> {
     void create(T object);
     T get(int id);
-    ArrayList<T> getAll();
+    List<T> getAll();
+    List<T> getAllSorted(Comparator<T> comparator);
     void update(int id, T object);
     void delete(int id);
 

@@ -1,10 +1,9 @@
 package edu.hogwarts.controller;
 
+import edu.hogwarts.data.HogwartsStudent;
 import edu.hogwarts.data.HogwartsTeacher;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class TeacherController implements Controller<HogwartsTeacher> {
     private Map<Integer, HogwartsTeacher> teachers = new HashMap<>();
@@ -14,7 +13,6 @@ public class TeacherController implements Controller<HogwartsTeacher> {
     @Override
     public void create(HogwartsTeacher teacher) {
         teachers.put(nextId, teacher);
-        System.out.println("Teacher created with ID: " + nextId);
         nextId++; // Inkrementér ID for hver create.
     }
 
@@ -26,6 +24,13 @@ public class TeacherController implements Controller<HogwartsTeacher> {
     @Override
     public ArrayList<HogwartsTeacher> getAll() {
         return new ArrayList<>(teachers.values());
+    }
+
+    @Override
+    public List<HogwartsTeacher> getAllSorted(Comparator<HogwartsTeacher> comparator){
+        List<HogwartsTeacher> list = new ArrayList<>(teachers.values());
+        list.sort(comparator);
+        return list;
     }
 
     @Override

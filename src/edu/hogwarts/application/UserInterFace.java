@@ -53,7 +53,7 @@ public class UserInterFace {
 
     public void getAllStudents(){
         System.out.println("List of all students:");
-        ArrayList<HogwartsStudent> students = studentController.getAll();
+        List<HogwartsStudent> students = studentController.getAll();
         for (HogwartsStudent student : students){
             System.out.println(student.toString());
         }

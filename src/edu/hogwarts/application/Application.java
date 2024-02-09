@@ -18,8 +18,11 @@ public class Application {
 
     public void start(){
         initApp = new InitApp(studentController, teacherController, userInterface);
-        initApp.initialize();
-        initApp.displayData();
+        initApp.initializeStudents();
+        initApp.initializeTeachers();
+        //initApp.displayData();
+        //initApp.getAllStudentsByName();
+        initApp.getAllTeachersByName();
 
     }
     public static void main(String[] args){
